@@ -52,6 +52,14 @@ Type MSG
 End Type
 
 
+Public Const FW_BOLD = 700
+Public Const ANSI_CHARSET = 0
+Public Const OUT_TT_PRECIS = 4
+Public Const CLIP_DEFAULT_PRECIS = 0
+Public Const ANTIALIASED_QUALITY = 4
+Public Const FF_DONTCARE = 0
+Public Const DEFAULT_PITCH = 0
+
 Public Const DELETE = &H10000
 Public Const READ_CONTROL = &H20000
 Public Const WRITE_DAC = &H40000
@@ -2379,8 +2387,8 @@ Declare Function SetComputerName Lib "kernel32" Alias "SetComputerNameA" (ByVal 
 Declare Function GetUserName Lib "advapi32.dll" Alias "GetUserNameA" (ByVal lpBuffer As String, nSize As Long) As Long
 
 ' Performance counter API's
-Declare Function QueryPerformanceCounter Lib "kernel32" Alias "QueryPerformanceCounter" (lpPerformanceCount As LARGE_INTEGER) As Long
-Declare Function QueryPerformanceFrequency Lib "kernel32" Alias "QueryPerformanceFrequency" (lpFrequency As LARGE_INTEGER) As Long
+Declare Function QueryPerformanceCounter Lib "kernel32" Alias "QueryPerformanceCounter" (lpPerformanceCount As Currency) As Long
+Declare Function QueryPerformanceFrequency Lib "kernel32" Alias "QueryPerformanceFrequency" (lpFrequency As Currency) As Long
 
 '  Abnormal termination codes
 Public Const TC_NORMAL = 0
@@ -3545,6 +3553,7 @@ Public Const OEM_CHARSET = 255
 
 ' Font Families
 '
+
 Public Const FF_DONTCARE = 0    '  Don't care or don't know.
 Public Const FF_ROMAN = 16      '  Variable stroke width, serifed.
 
@@ -7093,7 +7102,7 @@ Declare Function AdjustWindowRectEx Lib "user32" Alias "AdjustWindowRectEx" (lpR
 
 ' MessageBox() Flags
 Public Const MB_OK = &H0&
-public MB_ICONERROR = &H00000010&
+public const MB_ICONERROR = &H00000010&
 Public Const MB_OKCANCEL = &H1&
 Public Const MB_ABORTRETRYIGNORE = &H2&
 Public Const MB_YESNOCANCEL = &H3&
