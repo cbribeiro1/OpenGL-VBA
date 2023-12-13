@@ -66,6 +66,8 @@ End Type
 	ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
 'Declare Function GetTickCount Lib "kernel32" Alias "GetTickCount" () As Long
 'Declare Function Ellipse Lib "gdi32" Alias "Ellipse" (ByVal hdc As Long, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+'Declare Function InvalidateRect Lib "user32" Alias "InvalidateRect" (ByVal hwnd As Long, lpRect As RECT, ByVal bErase As Long) As Long
+'Declare Function FillRect Lib "user32" Alias "FillRect" (ByVal hdc As Long, lpRect As RECT, ByVal hBrush As Long) As Long
 
 'Public Const SRCCOPY = &HCC0020
 '----------------------------------------------------------------------------------------------------------------------------------------------------------------
