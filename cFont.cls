@@ -51,6 +51,10 @@ Dim i&
             glTranslated 8, 0, 0                            '' Move To The Right Of The Character
         glEndList
     Next i
+	
+	'A = 65
+    'a = 97
+    'a - A = 32
 
 End Function
 
