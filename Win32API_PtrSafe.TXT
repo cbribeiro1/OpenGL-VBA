@@ -72,6 +72,31 @@ Declare PtrSafe Function DefWindowProc Lib "user32" Alias "DefWindowProcA" (ByVa
 
 '========================================================================================================================================================================================
 
+'Código Básico para utilizar num Userform
+==========================================
+Declare PtrSafe Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As LongPtr
+Declare PtrSafe Function GetDC Lib "user32" Alias "GetDC" (ByVal hwnd As LongPtr) As LongPtr
+Declare PtrSafe Function ReleaseDC Lib "user32" Alias "ReleaseDC" (ByVal hwnd As LongPtr, ByVal hdc As LongPtr) As Long
+Declare PtrSafe Function GetClientRect Lib "user32" Alias "GetClientRect" (ByVal hwnd As LongPtr, lpRect As RECT) As Long
+Declare PtrSafe Function SelectObject Lib "gdi32" Alias "SelectObject" (ByVal hdc As LongPtr, ByVal hObject As LongPtr) As LongPtr
+Declare PtrSafe Function DeleteObject Lib "gdi32" Alias "DeleteObject" (ByVal hObject As LongPtr) As Long
+Declare PtrSafe Function CreatePen Lib "gdi32" Alias "CreatePen" (ByVal nPenStyle As Long, ByVal nWidth As Long, ByVal crColor As Long) As LongPtr
+Declare PtrSafe Function CreateSolidBrush Lib "gdi32" Alias "CreateSolidBrush" (ByVal crColor As Long) As LongPtr
+Declare PtrSafe Function CreateCompatibleBitmap Lib "gdi32" Alias "CreateCompatibleBitmap" (ByVal hdc As LongPtr, ByVal nWidth As Long, ByVal nHeight As Long) As LongPtr
+Declare PtrSafe Function CreateCompatibleDC Lib "gdi32" Alias "CreateCompatibleDC" (ByVal hdc As LongPtr) As LongPtr
+Declare PtrSafe Function BitBlt Lib "gdi32" Alias "BitBlt" (ByVal hDestDC As LongPtr, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As LongPtr, _ 
+	ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Declare PtrSafe Function Ellipse Lib "gdi32" Alias "Ellipse" (ByVal hdc As LongPtr, ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long
+Declare PtrSafe Function InvalidateRect Lib "user32" Alias "InvalidateRect" (ByVal hwnd As LongPtr, lpRect As RECT, ByVal bErase As Long) As Long
+Declare PtrSafe Function FillRect Lib "user32" Alias "FillRect" (ByVal hdc As LongPtr, lpRect As RECT, ByVal hBrush As LongPtr) As Long
+Declare PtrSafe Function IntersectRect Lib "user32" Alias "IntersectRect" (lpDestRect As RECT, lpSrc1Rect As RECT, lpSrc2Rect As RECT) As Long
+
+#If Win64 Then
+	Declare PtrSafe Function GetTickCount64 Lib "kernel32" Alias "GetTickCount64" () As LongLong
+#End If
+
+'===================================================================================================================================================================================================
+
 ' Type definitions for Windows' basic types.
 Const ANYSIZE_ARRAY = 1
 Type RECT
